@@ -1,7 +1,7 @@
 package lesson2;
 
-import lesson2.db.Database;
-import lesson2.db.InMemoryDatabase;
+import lesson2.db.TodoRepository;
+import lesson2.db.jdbc.TodoRepositoryImpl;
 import lesson2.services.AddTodoService;
 import lesson2.services.GetTodoListService;
 import lesson2.services.RemoveTodoService;
@@ -20,7 +20,7 @@ public class TodoListApplication {
         // 3. Print todo list to console
         // 4. Exit
 
-        Database database = new InMemoryDatabase();
+        TodoRepository database = new TodoRepositoryImpl();
 
         AddTodoService addTodoService = new AddTodoService(database);
         RemoveTodoService removeTodoService = new RemoveTodoService(database);

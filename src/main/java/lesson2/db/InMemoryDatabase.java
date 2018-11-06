@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class InMemoryDatabase implements Database {
+public class InMemoryDatabase implements TodoRepository {
 
     private List<Todo> todos = new ArrayList<>();
 
     @Override
-    public void addTodo(Todo todo) {
+    public void save(Todo todo) {
         todos.add(todo);
     }
 
     @Override
-    public Optional<Todo> findTodoByTitle(String title) {
+    public Optional<Todo> findByTitle(String title) {
         /*for (Todo todo : todos) {
             if (todo.getTitle().equals(title)) {
                 return Optional.of(todo);
@@ -30,12 +30,12 @@ public class InMemoryDatabase implements Database {
     }
 
     @Override
-    public boolean deleteTodo(Todo todo) {
+    public boolean remove(Todo todo) {
         return todos.remove(todo);
     }
 
     @Override
-    public List<Todo> getAllTodos() {
+    public List<Todo> getAll() {
         return new ArrayList<>(todos);
     }
 

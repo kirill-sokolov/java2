@@ -1,23 +1,23 @@
 package lesson2.services;
 
 import lesson2.domain.Todo;
-import lesson2.db.Database;
+import lesson2.db.TodoRepository;
 
 import java.util.Optional;
 
 public class RemoveTodoService {
 
-    private Database database;
+    private TodoRepository database;
 
-    public RemoveTodoService(Database database) {
+    public RemoveTodoService(TodoRepository database) {
         this.database = database;
     }
 
     public boolean remove(String title) {
-        Optional<Todo> foundTodo = database.findTodoByTitle(title);
+        Optional<Todo> foundTodo = database.findByTitle(title);
         if (foundTodo.isPresent()) {
             Todo todo = foundTodo.get();
-            return database.deleteTodo(todo);
+            return database.remove(todo);
         } else {
             return false;
         }

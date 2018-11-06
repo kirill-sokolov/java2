@@ -1,13 +1,13 @@
 package lesson2.services;
 
 import lesson2.domain.Todo;
-import lesson2.db.Database;
+import lesson2.db.TodoRepository;
 
 public class AddTodoService {
 
-    private Database database;
+    private TodoRepository database;
 
-    public AddTodoService(Database database) {
+    public AddTodoService(TodoRepository database) {
         this.database = database;
     }
 
@@ -17,7 +17,7 @@ public class AddTodoService {
         todo.setTitle(title);
         todo.setDescription(description);
 
-        database.addTodo(todo);
+        database.save(todo);
     }
 
 }
