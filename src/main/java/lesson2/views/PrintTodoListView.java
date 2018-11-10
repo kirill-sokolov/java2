@@ -2,9 +2,13 @@ package lesson2.views;
 
 import lesson2.services.GetTodoListService;
 import lesson2.domain.Todo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PrintTodoListView {
 
+//    @Autowired
     private GetTodoListService service;
 
     public PrintTodoListView(GetTodoListService service) {

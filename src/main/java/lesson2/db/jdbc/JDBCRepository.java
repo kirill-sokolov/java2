@@ -1,9 +1,13 @@
 package lesson2.db.jdbc;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Repository
 public abstract class JDBCRepository {
 
     private String jdbcUrl = "jdbc:mysql://localhost:3306/java2";

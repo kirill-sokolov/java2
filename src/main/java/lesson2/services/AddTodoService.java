@@ -2,13 +2,17 @@ package lesson2.services;
 
 import lesson2.domain.Todo;
 import lesson2.db.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AddTodoService {
 
-    private TodoRepository database;
+    @Autowired
+    private TodoRepository repository;
 
-    public AddTodoService(TodoRepository database) {
-        this.database = database;
+    public AddTodoService(TodoRepository repository) {
+        this.repository = repository;
     }
 
     public void add(String title,
@@ -17,7 +21,7 @@ public class AddTodoService {
         todo.setTitle(title);
         todo.setDescription(description);
 
-        database.save(todo);
+        repository.save(todo);
     }
 
 }

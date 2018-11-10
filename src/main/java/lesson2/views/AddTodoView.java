@@ -1,11 +1,15 @@
 package lesson2.views;
 
 import lesson2.services.AddTodoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class AddTodoView {
 
+//    @Autowired
     private AddTodoService addTodoService;
 
     public AddTodoView(AddTodoService addTodoService) {

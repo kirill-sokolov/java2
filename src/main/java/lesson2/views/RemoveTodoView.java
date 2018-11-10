@@ -1,11 +1,15 @@
 package lesson2.views;
 
 import lesson2.services.RemoveTodoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class RemoveTodoView {
 
+//    @Autowired
     private RemoveTodoService removeTodoService;
 
     public RemoveTodoView(RemoveTodoService removeTodoService) {

@@ -1,13 +1,20 @@
 package lesson2;
 
-import lesson2.db.TodoRepository;
-import lesson2.db.jdbc.TodoRepositoryImpl;
-import lesson2.services.AddTodoService;
-import lesson2.services.GetTodoListService;
-import lesson2.services.RemoveTodoService;
+//import lesson2.db.TodoRepository;
+//import lesson2.db.jdbc.TodoRepositoryImpl;
+//import lesson2.services.AddTodoService;
+//import lesson2.services.GetTodoListService;
+//import lesson2.services.RemoveTodoService;
+
+import lesson2.config.SpringAppConfig;
+//import lesson2.views.AddTodoView;
+//import lesson2.views.PrintTodoListView;
+//import lesson2.views.RemoveTodoView;
 import lesson2.views.AddTodoView;
 import lesson2.views.PrintTodoListView;
 import lesson2.views.RemoveTodoView;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
 
@@ -20,15 +27,23 @@ public class TodoListApplication {
         // 3. Print todo list to console
         // 4. Exit
 
-        TodoRepository database = new TodoRepositoryImpl();
+//        TodoRepository database = new TodoRepositoryImpl();
+//
+//        AddTodoService addTodoService = new AddTodoService(database);
+//        RemoveTodoService removeTodoService = new RemoveTodoService(database);
+//        GetTodoListService getTodoListService = new GetTodoListService(database);
+//
+//        AddTodoView addTodoView = new AddTodoView(addTodoService);
+//        RemoveTodoView removeTodoView = new RemoveTodoView(removeTodoService);
+//        PrintTodoListView printTodoListView = new PrintTodoListView(getTodoListService);
 
-        AddTodoService addTodoService = new AddTodoService(database);
-        RemoveTodoService removeTodoService = new RemoveTodoService(database);
-        GetTodoListService getTodoListService = new GetTodoListService(database);
+        ApplicationContext context
+                = new AnnotationConfigApplicationContext(SpringAppConfig.class);
 
-        AddTodoView addTodoView = new AddTodoView(addTodoService);
-        RemoveTodoView removeTodoView = new RemoveTodoView(removeTodoService);
-        PrintTodoListView printTodoListView = new PrintTodoListView(getTodoListService);
+//        ((AnnotationConfigApplicationContext) context).refresh();
+        AddTodoView addTodoView = context.getBean(AddTodoView.class);
+        RemoveTodoView removeTodoView = context.getBean(RemoveTodoView.class);
+        PrintTodoListView printTodoListView = context.getBean(PrintTodoListView.class);
 
         while (true) {
             printProgramMenu();
