@@ -9,12 +9,12 @@ import java.util.Scanner;
 @Component
 public class AddTodoView {
 
-//    @Autowired
+    @Autowired
     private AddTodoService addTodoService;
 
-    public AddTodoView(AddTodoService addTodoService) {
-        this.addTodoService = addTodoService;
-    }
+//    public AddTodoView(AddTodoService addTodoService) {
+//        this.addTodoService = addTodoService;
+//    }
 
     public void execute() {
         System.out.println();
