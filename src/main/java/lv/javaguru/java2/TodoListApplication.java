@@ -1,9 +1,11 @@
 package lv.javaguru.java2;
 
-import lv.javaguru.java2.config.SpringAppConfig;
-import lv.javaguru.java2.views.AddTodoView;
-import lv.javaguru.java2.views.PrintTodoListView;
-import lv.javaguru.java2.views.RemoveTodoView;
+import lv.javaguru.java2.console.config.SpringAppConfig;
+import lv.javaguru.java2.console.views.AddTodoView;
+import lv.javaguru.java2.console.views.AddUserView;
+import lv.javaguru.java2.console.views.PrintTodoListView;
+import lv.javaguru.java2.console.views.RemoveTodoView;
+import lv.javaguru.java2.console.views.AddTodoListView;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -23,7 +25,11 @@ public class TodoListApplication {
 
         AddTodoView addTodoView = context.getBean(AddTodoView.class);
         RemoveTodoView removeTodoView = context.getBean(RemoveTodoView.class);
+
         PrintTodoListView printTodoListView = context.getBean(PrintTodoListView.class);
+
+        AddUserView addUserView = context.getBean(AddUserView.class);
+        AddTodoListView addTodoListView = context.getBean(AddTodoListView.class);
 
         while (true) {
             printProgramMenu();
@@ -44,6 +50,14 @@ public class TodoListApplication {
                     printTodoListView.execute();
                     break;
                 }
+                case 11: {
+                    addUserView.execute();
+                    break;
+                }
+                case 21: {
+                    addTodoListView.execute();
+                    break;
+                }
             }
         }
     }
@@ -54,6 +68,8 @@ public class TodoListApplication {
         System.out.println("2. Remove todo from list");
         System.out.println("3. Print list to console");
         System.out.println("4. Exit");
+        System.out.println("11. Add USer");
+        System.out.println("21. Add Todo list");
     }
 
     private static int getFromUserMenuItemToExecute() {
