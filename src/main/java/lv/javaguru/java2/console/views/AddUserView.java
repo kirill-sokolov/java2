@@ -1,9 +1,9 @@
 package lv.javaguru.java2.console.views;
 
 
-import lv.javaguru.java2.console.businesslogic.userregistration.UserRegistrationRequest;
-import lv.javaguru.java2.console.businesslogic.userregistration.UserRegistrationResponse;
-import lv.javaguru.java2.console.businesslogic.userregistration.UserRegistrationService;
+import lv.javaguru.java2.console.services.users.registration.UserRegistrationRequest;
+import lv.javaguru.java2.console.services.users.registration.UserRegistrationResponse;
+import lv.javaguru.java2.console.services.users.registration.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

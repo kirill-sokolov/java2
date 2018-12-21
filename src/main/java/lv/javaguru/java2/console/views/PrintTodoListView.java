@@ -1,6 +1,6 @@
 package lv.javaguru.java2.console.views;
 
-import lv.javaguru.java2.console.businesslogic.gettodolist.GetTodoListService;
+import lv.javaguru.java2.console.services.todos.get.GetTodoListService;
 import lv.javaguru.java2.console.domain.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

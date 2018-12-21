@@ -1,7 +1,7 @@
 package lv.javaguru.java2.console.views;
 
-import lv.javaguru.java2.console.businesslogic.addtodo.AddTodoRequest;
-import lv.javaguru.java2.console.businesslogic.addtodo.AddTodoService;
+import lv.javaguru.java2.console.services.todos.add.AddTodoRequest;
+import lv.javaguru.java2.console.services.todos.add.AddTodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

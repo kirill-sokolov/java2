@@ -1,6 +1,6 @@
 package lv.javaguru.java2.console.views;
 
-import lv.javaguru.java2.console.businesslogic.removetodo.RemoveTodoService;
+import lv.javaguru.java2.console.services.todos.remove.RemoveTodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
