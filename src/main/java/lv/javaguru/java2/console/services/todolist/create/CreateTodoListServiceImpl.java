@@ -1,7 +1,7 @@
-package lv.javaguru.java2.console.services.todolist;
+package lv.javaguru.java2.console.services.todolist.create;
 
 import lv.javaguru.java2.console.services.Error;
-import lv.javaguru.java2.console.services.todolist.validation.CreateTodoListValidator;
+import lv.javaguru.java2.console.services.todolist.create.validation.CreateTodoListValidator;
 import lv.javaguru.java2.console.database.TodoListRepository;
 import lv.javaguru.java2.console.database.UserRepository;
 import lv.javaguru.java2.console.domain.TodoList;

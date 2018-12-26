@@ -1,6 +1,6 @@
-package lv.javaguru.java2.console.services.todolist.validation;
+package lv.javaguru.java2.console.services.todolist.create.validation;
 
-import lv.javaguru.java2.console.services.todolist.CreateTodoListRequest;
+import lv.javaguru.java2.console.services.todolist.create.CreateTodoListRequest;
 import lv.javaguru.java2.console.services.Error;
 import lv.javaguru.java2.console.domain.User;
 

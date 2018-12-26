@@ -1,4 +1,4 @@
-package lv.javaguru.java2.console.services.todolist;
+package lv.javaguru.java2.console.services.todolist.create;
 
 public class CreateTodoListRequest {
     private String userLogin;

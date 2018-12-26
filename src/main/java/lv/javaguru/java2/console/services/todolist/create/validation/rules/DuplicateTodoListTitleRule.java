@@ -1,4 +1,4 @@
-package lv.javaguru.java2.console.services.todolist.validation.rules;
+package lv.javaguru.java2.console.services.todolist.create.validation.rules;
 
 import lv.javaguru.java2.console.services.Error;
 import lv.javaguru.java2.console.database.TodoListRepository;

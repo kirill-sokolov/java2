@@ -1,9 +1,9 @@
-package lv.javaguru.java2.console.services.todolist.validation;
+package lv.javaguru.java2.console.services.todolist.create.validation;
 
 import lv.javaguru.java2.console.services.todos.add.validation.rules.EmptyTitleRule;
-import lv.javaguru.java2.console.services.todolist.CreateTodoListRequest;
+import lv.javaguru.java2.console.services.todolist.create.CreateTodoListRequest;
 import lv.javaguru.java2.console.services.Error;
-import lv.javaguru.java2.console.services.todolist.validation.rules.DuplicateTodoListTitleRule;
+import lv.javaguru.java2.console.services.todolist.create.validation.rules.DuplicateTodoListTitleRule;
 import lv.javaguru.java2.console.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
