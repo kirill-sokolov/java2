@@ -14,5 +14,6 @@ public interface TodoRepository {
     boolean remove(Todo todo);
 
     List<Todo> getAll();
+    List<Todo> findListItems(Long todoListId);
 
 }

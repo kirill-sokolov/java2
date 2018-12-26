@@ -113,4 +113,10 @@ public class TodoRepositoryImpl
         return todos;
     }
 
+    @Override
+    public List<Todo> findListItems(Long todoListId) {
+        List<Todo> todos = new ArrayList<>();
+        return todos;
+    }
+
 }

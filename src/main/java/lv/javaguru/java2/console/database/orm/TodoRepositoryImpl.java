@@ -2,6 +2,7 @@ package lv.javaguru.java2.console.database.orm;
 
 import lv.javaguru.java2.console.database.TodoRepository;
 import lv.javaguru.java2.console.domain.Todo;
+import lv.javaguru.java2.console.domain.TodoList;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,18 +14,15 @@ import java.util.Optional;
 
 @Component
 @Transactional
-public class TodoRepositoryImpl implements TodoRepository {
-    @Autowired
-    private SessionFactory sessionFactory;
-
+public class TodoRepositoryImpl extends ORMRepository implements TodoRepository {
     @Override
     public void save(Todo todo) {
-        sessionFactory.getCurrentSession().save(todo);
+        session().save(todo);
     }
 
     @Override
     public Optional<Todo> findByTitle(String title) {
-        Todo todo = (Todo) sessionFactory.getCurrentSession().createCriteria(Todo.class)
+        Todo todo = (Todo) session().createCriteria(Todo.class)
                 .add(Restrictions.eq("title", title))
                 .uniqueResult();
         return Optional.ofNullable(todo);
@@ -32,14 +30,23 @@ public class TodoRepositoryImpl implements TodoRepository {
 
     @Override
     public boolean remove(Todo todo) {
-        sessionFactory.getCurrentSession().delete(todo);
+        session().delete(todo);
         return true;
     }
 
     @Override
     public List<Todo> getAll() {
-        return sessionFactory.getCurrentSession()
+        return session()
                 .createCriteria(Todo.class)
                 .list();
     }
+
+    @Override
+    public List<Todo> findListItems(Long todoListId) {
+        String query = "from Todos td where td.todo_list_id = :todoListId";
+        return session().createQuery(query)
+                .setParameter("todoListId", todoListId)
+                .list();
+    }
+
 }

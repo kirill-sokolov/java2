@@ -39,4 +39,9 @@ public class InMemoryDatabase implements TodoRepository {
         return new ArrayList<>(todos);
     }
 
+    @Override
+    public List<Todo> findListItems(Long todoListId) {
+        return new ArrayList<>(todos);
+    }
+
 }

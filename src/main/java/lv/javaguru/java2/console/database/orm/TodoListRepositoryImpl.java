@@ -13,18 +13,18 @@ import java.util.Optional;
 
 @Component
 @Transactional
-public class TodoListRepositoryImpl implements TodoListRepository {
+public class TodoListRepositoryImpl extends ORMRepository implements TodoListRepository {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
     public void save(TodoList todoList) {
-        sessionFactory.getCurrentSession().save(todoList);
+        session().save(todoList);
     }
 
     @Override
     public Optional<TodoList> findByUserAndTitle(User user, String title) {
-        TodoList todoList = (TodoList) sessionFactory.getCurrentSession().createCriteria(TodoList.class)
+        TodoList todoList = (TodoList) session().createCriteria(TodoList.class)
                 .add(Restrictions.eq("user", user))
                 .add(Restrictions.eq("title", title))
                 .uniqueResult();
@@ -33,13 +33,13 @@ public class TodoListRepositoryImpl implements TodoListRepository {
 
 //    @Override
 //    public boolean remove(User user) {
-//        sessionFactory.getCurrentSession().delete(user);
+//        session().delete(user);
 //        return true;
 //    }
 //
 //    @Override
 //    public List<User> getAll() {
-//        return sessionFactory.getCurrentSession()
+//        return session()
 //                .createCriteria(User.class)
 //                .list();
 //    }
