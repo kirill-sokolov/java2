@@ -3,10 +3,12 @@ package lv.javaguru.java2.console.services.todos.add;
 public class AddTodoRequest {
     private String title;
     private String description;
+    private Long todoListId;
 
-    public AddTodoRequest(String title, String description) {
+    public AddTodoRequest(String title, String description, Long todoListId) {
         this.title = title;
         this.description = description;
+        this.todoListId = todoListId;
     }
 
     public String getTitle() {
@@ -23,5 +25,13 @@ public class AddTodoRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getTodoListId() {
+        return todoListId;
+    }
+
+    public void setTodoListId(Long todoListId) {
+        this.todoListId = todoListId;
     }
 }

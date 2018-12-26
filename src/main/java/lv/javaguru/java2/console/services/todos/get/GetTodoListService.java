@@ -17,4 +17,8 @@ public class GetTodoListService {
         return todoRepository.getAll();
     }
 
+    public List<Todo> getAllTodosByTodoListId(Long todoListId) {
+        return todoRepository.findListItems(todoListId);
+    }
+
 }

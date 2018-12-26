@@ -1,8 +1,8 @@
 package lv.javaguru.java2.console.views;
 
-import lv.javaguru.java2.console.services.todolist.CreateTodoListRequest;
-import lv.javaguru.java2.console.services.todolist.CreateTodoListResponse;
-import lv.javaguru.java2.console.services.todolist.CreateTodoListService;
+import lv.javaguru.java2.console.services.todolist.create.CreateTodoListRequest;
+import lv.javaguru.java2.console.services.todolist.create.CreateTodoListResponse;
+import lv.javaguru.java2.console.services.todolist.create.CreateTodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
