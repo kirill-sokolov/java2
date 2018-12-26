@@ -20,32 +20,32 @@ public class HelloWorldController {
     @Autowired
     private AddTodoService addTodoService;
 
-    @RequestMapping(value = "hello/{id}", method = {RequestMethod.GET})
-    public ModelAndView processGet(HttpServletRequest request,
-                                   @PathVariable Long id) {
+//    @RequestMapping(value = "hello/{id}", method = {RequestMethod.GET})
+//    public ModelAndView processGet(HttpServletRequest request,
+//                                   @PathVariable Long id) {
 
-        logger.info("ID = " + id);
+//        logger.info("ID = " + id);
+//
+//        String todoTitle = request.getParameter("title");
+//        String todoDescription = request.getParameter("description");
+//
+////        addTodoService.add(todoTitle, todoDescription);
+//        AddTodoRequest addTodoRequest = new AddTodoRequest(todoTitle, todoDescription);
+//        addTodoService.add(addTodoRequest);
+//
+//        return new ModelAndView("helloWorld", "model", "Hello from MVC!");
+//    }
 
-        String todoTitle = request.getParameter("title");
-        String todoDescription = request.getParameter("description");
+//    @RequestMapping(value = "hello", method = {RequestMethod.GET})
+//    public ModelAndView process(HttpServletRequest request) {
 
-//        addTodoService.add(todoTitle, todoDescription);
-        AddTodoRequest addTodoRequest = new AddTodoRequest(todoTitle, todoDescription);
-        addTodoService.add(addTodoRequest);
-
-        return new ModelAndView("helloWorld", "model", "Hello from MVC!");
-    }
-
-    @RequestMapping(value = "hello", method = {RequestMethod.GET})
-    public ModelAndView process(HttpServletRequest request) {
-
-        String todoTitle = request.getParameter("title");
-        String todoDescription = request.getParameter("description");
-
-//        addTodoService.add(todoTitle, todoDescription);
-        AddTodoRequest addTodoRequest = new AddTodoRequest(todoTitle, todoDescription);
-        addTodoService.add(addTodoRequest);
-
-        return new ModelAndView("helloWorld", "model", "Hello from MVC!");
-    }
+//        String todoTitle = request.getParameter("title");
+//        String todoDescription = request.getParameter("description");
+//
+////        addTodoService.add(todoTitle, todoDescription);
+//        AddTodoRequest addTodoRequest = new AddTodoRequest(todoTitle, todoDescription);
+//        addTodoService.add(addTodoRequest);
+//
+//        return new ModelAndView("helloWorld", "model", "Hello from MVC!");
+//    }
 }
