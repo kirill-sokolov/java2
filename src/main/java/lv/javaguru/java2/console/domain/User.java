@@ -70,7 +70,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "ToDo{" +
+        return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +

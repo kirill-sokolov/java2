@@ -74,7 +74,7 @@ public class TodoList {
 
     @Override
     public String toString() {
-        return "ToDo{" +
+        return "ToDoList{" +
                 "id=" + id +
                 ", user='" + user + '\'' +
                 ", title='" + title + '\'' +
