@@ -18,13 +18,17 @@ public class Todo {
     @Column(name = "description")
     private String title;
 
+    @Column(name = "todo_list_id")
+    private Long todoListId;
+
     public Todo() {
     }
 
-    public Todo(Long id, String title, String description) {
+    public Todo(Long id, String title, String description, Long todoListId) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.todoListId = todoListId;
     }
 
     public Todo(String title) {
@@ -53,6 +57,14 @@ public class Todo {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Long getTodoListId() {
+        return todoListId;
+    }
+
+    public void setTodoListId(Long todoListId) {
+        this.todoListId = todoListId;
     }
 
     @Override

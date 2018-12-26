@@ -32,7 +32,7 @@ public class AddTodoValidatorImplTest {
         Mockito.when(duplicateTodoTitleRule.execute("milk"))
                 .thenReturn(Optional.of(new Error("title", "duplicate")));
         List<Error> errors = validator.validate(
-                new AddTodoRequest("milk", "desc")
+                new AddTodoRequest("milk", "desc", Long.valueOf(3002))
         );
         assertEquals(errors.size(), 2);
     }

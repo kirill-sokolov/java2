@@ -24,6 +24,7 @@ public class AddTodoServiceImpl implements AddTodoService {
         Todo todo = new Todo();
         todo.setTitle(request.getTitle());
         todo.setDescription(request.getDescription());
+        todo.setTodoListId(request.getTodoListId());
         todoRepository.save(todo);
         return new AddTodoResponse(todo.getId());
     }

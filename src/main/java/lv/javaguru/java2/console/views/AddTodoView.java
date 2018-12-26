@@ -21,9 +21,11 @@ public class AddTodoView {
         String title = sc.nextLine();
         System.out.print("Enter todo description:");
         String description = sc.nextLine();
+        System.out.print("Enter todo todoListId:");
+        Long todoListId = sc.nextLong();
 
 //        addTodoService.add(title, description);
-        AddTodoRequest request = new AddTodoRequest(title, description);
+        AddTodoRequest request = new AddTodoRequest(title, description, todoListId);
         addTodoService.add(request);
 
         System.out.println("Add todo to list execution end!");
