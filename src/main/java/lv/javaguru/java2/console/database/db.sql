@@ -5,16 +5,59 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `java2` DEFAULT CHARACTER SET utf8 ;
 USE `java2` ;
 
-DROP TABLE IF EXISTS `todos`;
+DROP TABLE IF EXISTS `todo_lists` ;
+DROP TABLE IF EXISTS `todos` ;
+DROP TABLE IF EXISTS `users` ;
 
-CREATE TABLE IF NOT EXISTS `todos` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(32) NOT NULL,
-  `description` VARCHAR(100) NOT NULL,
+  `login` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB
 AUTO_INCREMENT = 1002;
+
+CREATE TABLE IF NOT EXISTS `todo_lists` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `user_id` BIGINT NOT NULL,
+  `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `edited_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 2002;
+
+CREATE TABLE IF NOT EXISTS `todos` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `todo_list_id` BIGINT NOT NULL,
+  `title` VARCHAR(32) NOT NULL,
+  `description` VARCHAR(100) NOT NULL,
+  `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `edited_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 3002;
+
+ALTER TABLE `todo_lists`
+ADD CONSTRAINT `fk_todo_lists_user_id`
+FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `todo_lists`
+ADD INDEX `ix_todo_lists_user_id`(`user_id`);
+
+ALTER TABLE `todo_lists`
+ADD UNIQUE INDEX `ix_todo_lists_user_id_title`(`user_id`, `title`);
+
+ALTER TABLE `todos`
+ADD CONSTRAINT `fk_todos_todo_list_id`
+FOREIGN KEY (`todo_list_id`) REFERENCES `todo_lists`(`id`);
+
+ALTER TABLE `todos`
+ADD INDEX `ix_todos_todo_list_id`(`todo_list_id`);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
