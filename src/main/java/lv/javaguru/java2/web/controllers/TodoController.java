@@ -37,7 +37,7 @@ public class TodoController {
     public List<Todo> getTodosInTodoList(@PathVariable("userId") Long userId, @PathVariable("todoListId") Long todoListId) {
 //        GetUserRequest request = new GetUserRequest(userId);
 //        GetUserResponse response = getUserService.get(request);
-        List<Todo> response = getTodoListService.getAllTodos();
+        List<Todo> response = getTodoListService.getAllTodosByTodoListId(todoListId);
         return response;
     }
 }

@@ -43,7 +43,7 @@ public class TodoRepositoryImpl extends ORMRepository implements TodoRepository 
 
     @Override
     public List<Todo> findListItems(Long todoListId) {
-        String query = "from Todos td where td.todo_list_id = :todoListId";
+        String query = "from Todo td where td.todoListId = :todoListId";
         return session().createQuery(query)
                 .setParameter("todoListId", todoListId)
                 .list();

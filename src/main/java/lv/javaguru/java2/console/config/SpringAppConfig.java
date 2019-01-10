@@ -29,10 +29,10 @@ public class SpringAppConfig {
 
     @Bean
     public static DataSource dataSource(
-            @Value("${jdbc.url}") String jdbcUrl,
-            @Value("${driverClass}") String driverClass,
-            @Value("${database.user.name}") String userName,
-            @Value("${database.user.password}") String password) {
+            @Value("${spring.datasource.hikari.jdbc-url}") String jdbcUrl,
+            @Value("${spring.datasource.driver-class-name}") String driverClass,
+            @Value("${spring.datasource.dbcp2.username}") String userName,
+            @Value("${spring.datasource.dbcp2.password}") String password) {
         BasicDataSource ds = new BasicDataSource();
         ds.setUrl(jdbcUrl);
         ds.setDriverClassName(driverClass);
@@ -43,14 +43,14 @@ public class SpringAppConfig {
 
     @Bean
     public Properties hibernateProperties(
-            @Value("${hibernate.dialect}") String dialect,
-            @Value("${hibernate.show_sql}") boolean showSql,
-            @Value("${hibernate.format_sql}") boolean formatSql,
-            @Value("${hibernate.hbm2ddl.auto}") String hbm2ddl) {
+            @Value("${spring.jooq.sql-dialect}") String dialect,
+            @Value("${spring.jpa.show-sql}") boolean showSql,
+//            @Value("${hibernate.format_sql}") boolean formatSql,
+            @Value("${spring.jpa.hibernate.ddl-auto}") String hbm2ddl) {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", dialect);
         properties.put("hibernate.show_sql", showSql);
-        properties.put("hibernate.format_sql", formatSql);
+//        properties.put("hibernate.format_sql", formatSql);
         properties.put("hibernate.hbm2ddl.auto", hbm2ddl);
         return properties;
     }
